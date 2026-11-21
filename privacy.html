@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARVision - Privacy & Policy</title>
+     <link rel="stylesheet" type="text/css" href="https:cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+    :root {
+        --primary: #667eea;
+        --primary-dark: #5a67d8;
+        --secondary: #764ba2;
+        --accent: #f093fb;
+        --dark: #1a1a2e;
+        --dark-light: #2d2d44;
+        --text-light: #e2e8f0;
+        --text-gray: #a0aec0;
+        --glass: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.6;
+        color: var(--text-light);
+        background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+        min-height: 100vh;
+    }
+
+    /* Floating Navigation */
+    .floating-nav {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        z-index: 1000;
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle {
+        background: none;
+        border: none;
+        color: var(--text-light);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: rotate(180deg);
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        min-width: 200px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        animation: slideDown 0.3s ease;
+    }
+
+    .nav-item {
+        padding: 12px 16px;
+        border-radius: 10px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid transparent;
+    }
+
+    .nav-item:hover {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    .nav-item.active {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Main Container */
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px;
+        position: relative;
+    }
+
+    /* Header */
+    .header {
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+    }
+
+    .header::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        border-radius: 2px;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        color: var(--text-gray);
+        font-weight: 400;
+    }
+
+    /* Content Sections */
+    .content-section {
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .content-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+
+    .content-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--text-light);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .section-icon {
+        font-size: 1.5rem;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .section-content p {
+        margin-bottom: 15px;
+        color: var(--text-gray);
+        line-height: 1.8;
+    }
+
+    .section-content ul {
+        list-style: none;
+        margin-left: 20px;
+    }
+
+    .section-content li {
+        position: relative;
+        margin-bottom: 10px;
+        color: var(--text-gray);
+        padding-left: 25px;
+    }
+
+    .section-content li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
+    }
+
+    /* Highlight boxes */
+    .highlight-box {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+        border-left: 4px solid var(--primary);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+    }
+
+    /* Footer */
+    .footer {
+        text-align: center;
+        padding: 40px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 60px;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text-gray);
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .floating-element {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .floating-nav {
+            top: 20px;
+            right: 20px;
+        }
+
+        .container {
+            padding: 40px 15px;
+        }
+
+        .content-section {
+            padding: 25px;
+        }
+
+        .logo {
+            font-size: 2rem;
+        }
+
+        .contact-info {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+
+    /* Smooth scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            line-height: 1.5;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .container{
+            max-width: 1170px;
+            margin: auto;
+        }
+        .row{
+            display: flex;
+        }
+        ul{
+            list-style: none;
+        }
+        .footer{
+            background-color: rgb(3,3,66);
+            padding: 50px 0;
+        }
+        .footer-col{
+             width: 20%;
+        }
+        .footer-col h4{
+            font-size: 18px;
+            color: white;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+
+        }
+        .footer-col h4::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: #e91e63;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+        .footer-col ul li::not(:last-child){
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a{
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: capitalize;
+            color: white;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul li a:hover{
+            color: white;
+            padding-left: 8px;
+        }
+        .footer-col .social-links a{
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(225,225,225,0.2);
+            margin:0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #bbbbbb;
+            transition: all 0.5s ease;
+        }
+        .footer-col .social-links a:hover{
+            color: #24262b;
+            background-color: #ffffff;
+        }
+        /* responsive*/
+        @media(max-width:767px){
+            .footer-col{
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+        @media(max-width:574px){
+            .footer-col{
+                width: 100%;
+             
+            }
+        }
+    </style>
+</style>
+
+
+</head>
+<body>
+    <!-- Floating Navigation -->
+    <nav class="floating-nav">
+        <button class="nav-toggle" onclick="toggleNav()">⚡</button>
+        <div class="nav-menu" id="navMenu">
+            <a href="homepage.html" class="nav-item active">🏠 Home</a>
+            <a href="about us.html" class="nav-item">ℹ About</a>
+            <a href="homepage.html" class="nav-item">✨ Features</a>
+            <a href="contact us.html" class="nav-item">📧 Contact</a>
+            <a href="#download" class="nav-item">⬇ Download</a>
+            <a href="contact us.html" class="nav-item">🛠 Support</a>
+        </div>
+    </nav>
+
+
+<div class="container">
+    <!-- Header -->
+    <header class="header" id="home">
+        <h1 class="logo floating-element">ARVision</h1>
+        <p class="subtitle">Privacy Policy & Terms of Service</p>
+    </header>
+
+    <!-- Privacy Policy Section -->
+    <section class="content-section">
+        <h2 class="section-title">
+            <span class="section-icon">🔒</span>
+            Privacy Policy
+        </h2>
+        <div class="section-content">
+            <p>At ARVision, we are committed to protecting your privacy and ensuring the security of your personal information. This policy outlines how we collect, use, and safeguard your data when using our augmented reality services.</p>
+            
+            <div class="highlight-box">
+                <strong>Last Updated:</strong> August 2025 | <strong>Effective Date:</strong> Immediately upon acceptance
+            </div>
+
+            <h3 style="color: var(--primary); margin: 25px 0 15px 0;">Data Collection</h3>
+            <ul>
+                <li>Camera and sensor data for AR functionality</li>
+                <li>Device location when explicitly permitted</li>
+                <li>Usage analytics to improve user experience</li>
+                <li>Account information (email, username)</li>
+                <li>Environmental mapping data (processed locally)</li>
+            </ul>
+
+            <h3 style="color: var(--primary); margin: 25px 0 15px 0;">AR-Specific Privacy Protections</h3>
+            <ul>
+                <li>Real-time image processing occurs on-device</li>
+                <li>No biometric data is stored permanently</li>
+                <li>Environmental scans are anonymized</li>
+                <li>Face tracking data is not linked to identity</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Terms of Service Section -->
+    <section class="content-section">
+        <h2 class="section-title">
+            <span class="section-icon">📋</span>
+            Terms of Service
+        </h2>
+        <div class="section-content">
+            <p>By using ARVision, you agree to comply with these terms and conditions. Our service provides cutting-edge augmented reality experiences while maintaining the highest standards of user safety and privacy.</p>
+
+            <h3 style="color: var(--primary); margin: 25px 0 15px 0;">Acceptable Use</h3>
+            <ul>
+                <li>Use AR features responsibly and safely</li>
+                <li>Respect others' privacy in shared AR spaces</li>
+                <li>Do not create harmful or offensive AR content</li>
+                <li>Comply with local laws regarding camera usage</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Safety Notice:</strong> Always be aware of your surroundings when using AR features. ARVision is not responsible for accidents that occur while using the application.
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Security Section -->
+    <section class="content-section">
+        <h2 class="section-title">
+            <span class="section-icon">🛡</span>
+            Data Security & Protection
+        </h2>
+        <div class="section-content">
+            <p>We implement industry-leading security measures to protect your data and ensure your AR experiences remain private and secure.</p>
+
+            <h3 style="color: var(--primary); margin: 25px 0 15px 0;">Security Measures</h3>
+            <ul>
+                <li>End-to-end encryption for all data transmission</li>
+                <li>Local processing minimizes cloud data storage</li>
+                <li>Regular security audits and updates</li>
+                <li>Secure authentication protocols</li>
+                <li>Automatic data purging after specified periods</li>
+            </ul>
+
+            <h3 style="color: var(--primary); margin: 25px 0 15px 0;">Your Rights</h3>
+            <ul>
+                <li>Request data deletion at any time</li>
+                <li>Access your personal information</li>
+                <li>Opt-out of data collection features</li>
+                <li>Control sharing preferences</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact & Support Section -->
+    <section class="content-section">
+        <h2 class="section-title">
+            <span class="section-icon">📞</span>
+            Contact & Support
+        </h2>
+        <div class="section-content">
+            <p>Have questions about our privacy policy or terms of service? Our dedicated support team is here to help with any concerns about your data privacy or AR experience.</p>
+
+            <div class="highlight-box">
+                <strong>Response Time:</strong> We typically respond to privacy inquiries within 24-48 hours.
+            </div>
+
+            <h3 style="color: var(--primary); margin: 25px 0 15px 0;">Get in Touch</h3>
+            <ul>
+                <li>Email: ngohlovert77@gamil.com</li>
+                <li>Phone: +237 670 093 629</li>
+                <li>Live Chat: Available 24/7 Whatsapp</li>
+                <li>Privacy Officer: brilliant@gmail.com</li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<!-- Footer -->
+  <footer class="footer">
+      <div class="container">
+         <div class="row">
+             <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about us.html">AboutUs</a></li>
+                    <li><a href="service.html">our Service</a></li>
+                    <li><a href="#">Partnership</a></li>
+                    <li><a href="#">Programs</a></li>
+                </ul>
+             </div>
+             <div class="footer-col">
+                <h4>News</h4>
+                <ul>
+                    <li><a href="#">Onlineplatform</a></li>
+                    <li><a href="#">DailyBlog</a></li>
+                    <li><a href="#">contentmax</a></li>
+                </ul>
+             </div>
+             <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">Towns</a></li>
+                    <li><a href="#">Amenities</a></li>
+                    <li><a href="#">Travel
+                        Review</a></li>
+                </ul>
+             </div>
+             <div class="footer-col">
+                <h4>Get_help</h4>
+                <ul>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="#">refurn</a></li>
+                    <li><a href="#">payment option</a></li>
+                </ul>
+             </div>
+             <div class="footer-col">
+                <h4>contactUs</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+             </div>
+         </div>
+      </div>
+    </footer>
+
+<script>
+    function toggleNav() {
+        const navMenu = document.getElementById('navMenu');
+        const navToggle = document.querySelector('.nav-toggle');
+        
+        navMenu.classList.toggle('active');
+        
+        // Rotate animation for toggle button
+        if (navMenu.classList.contains('active')) {
+            navToggle.style.transform = 'rotate(180deg)';
+        } else {
+            navToggle.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    // Smooth navigation with active state management
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Remove active class from all items
+            document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+            
+            // Add active class to clicked item
+            this.classList.add('active');
+            
+            // Close mobile menu
+            document.getElementById('navMenu').classList.remove('active');
+            document.querySelector('.nav-toggle').style.transform = 'rotate(0deg)';
+        });
+    });
+
+    // Add scroll-based animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'slideDown 0.6s ease forwards';
+            }
+        });
+    }, observerOptions);
+
+    // Observe all content sections
+    document.querySelectorAll('.content-section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Add hover effects for better interactivity
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+            this.style.boxShadow = '0 25px 50px rgba(102, 126, 234, 0.2)';
+        });
+        
+        section.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.3)';
+        });
+    });
+
+    // Close nav when clicking outside
+    document.addEventListener('click', function(e) {
+        const nav = document.querySelector('.floating-nav');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (!nav.contains(e.target) && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            document.querySelector('.nav-toggle').style.transform = 'rotate(0deg)';
+        }
+    });
+</script>
+
+
+</body>
+</html>

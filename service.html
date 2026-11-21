@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TryOn Pro - Professional Web Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #4682B4;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #4682B4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #4682B4;
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #4682B4;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button:hover {
+            background: #ff9500;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,127,0,0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #4682B4;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #4682B4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Technology Section */
+        .technology {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-item h4 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: #333;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: #1e3a8a;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #4682B4;
+        }
+
+        /* Footer */
+        .footer {
+            background: #222;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">TryOnApp</a>
+            <nav>
+                <ul class="nav-menu">
+                     <li><a href="homepage.html">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Revolutionary Try-On Experience</h1>
+            <p>Transform your online shopping with our cutting-edge AR/VR try-on application. Experience products like never before with photorealistic virtual fitting.</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Professional Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">👗</span>
+                    <h3>Fashion & Apparel</h3>
+                    <p>Virtual clothing try-on with precise fit simulation. Support for all garment types including dresses, suits, shoes, and accessories with real-time size and color variations.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💄</span>
+                    <h3>Beauty & Cosmetics</h3>
+                    <p>Advanced makeup and beauty product visualization. Try different lipstick shades, eyeshadow palettes, and skincare products with realistic skin tone matching.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">👓</span>
+                    <h3>Eyewear Solutions</h3>
+                    <p>Comprehensive eyewear fitting including glasses, sunglasses, and contact lenses. Features face shape analysis and style recommendations.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💍</span>
+                    <h3>Jewelry & Accessories</h3>
+                    <p>High-fidelity jewelry visualization with realistic lighting and reflection effects. Perfect for rings, necklaces, earrings, and luxury watches.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🏠</span>
+                    <h3>Home & Furniture</h3>
+                    <p>AR furniture placement and home decor visualization. See how items look in your actual space before purchasing with accurate scale and lighting.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">⚙</span>
+                    <h3>Custom Integration</h3>
+                    <p>Seamless integration with existing e-commerce platforms. Custom API development, white-label solutions, and enterprise-grade deployment options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h4>Multi-Platform Support</h4>
+                    <p>Works seamlessly across iOS, Android, and web browsers</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Precision Tracking</h4>
+                    <p>Advanced computer vision for accurate body and face tracking</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Real-Time Rendering</h4>
+                    <p>Instant try-on experience with 60fps performance</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Privacy First</h4>
+                    <p>Secure processing with no data storage of user images</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌐</div>
+                    <h4>Cloud Infrastructure</h4>
+                    <p>Scalable cloud-based processing for enterprise solutions</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <h4>Analytics Dashboard</h4>
+                    <p>Comprehensive insights and user behavior analytics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <h2 class="section-title">Advanced Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Machine Learning</h4>
+                    <p>Deep learning models for accurate fitting and recommendations</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Computer Vision</h4>
+                    <p>Advanced image processing and 3D pose estimation</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Augmented Reality</h4>
+                    <p>ARKit and ARCore integration for immersive experiences</p>
+                </div>
+                <div class="tech-item">
+                    <h4>3D Graphics</h4>
+                    <p>WebGL and Metal rendering for photorealistic visuals</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Cloud Computing</h4>
+                    <p>AWS and Azure infrastructure for global scalability</p>
+                </div>
+                <div class="tech-item">
+                    <h4>API Integration</h4>
+                    <p>RESTful APIs and SDK for seamless platform integration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Join thousands of retailers who have revolutionized their customer experience with our try-on technology. Contact us for a personalized demo and consultation.</p>
+            <a href="contact us.html" class="contact-button">Contact Our Team</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TryOn Pro. All rights reserved. | Transforming retail through innovative technology.</p>
+        </div>
+    </footer>
+</body>
+</html>

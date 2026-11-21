@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - ARVision Technologies</title>
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; background:white; color:#333; }
+
+    /* HERO SECTION */
+    .hero-section {
+        display:flex; justify-content:center; align-items:center; flex-direction:column;
+        min-height:90vh; text-align:center;
+        background: linear-gradient(135deg, #ff7f50, #1e90ff, #fff);
+        color:white; padding:40px 20px;
+    }
+    .hero-section img { width:180px; height:180px; margin-bottom:30px; border-radius:50%; border:5px solid rgba(255,255,255,0.3); }
+    .hero-title { font-size:3.5rem; font-weight:bold; margin-bottom:15px; }
+    .hero-subtitle { font-size:1.6rem; margin-bottom:20px; }
+    .hero-description { font-size:1.2rem; max-width:700px; margin:0 auto; }
+    .hero-buttons { margin-top:25px; display:flex; gap:15px; flex-wrap:wrap; justify-content:center; }
+    .hero-buttons a {
+        display:inline-block; padding:10px 25px; border-radius:50px; font-weight:600; text-decoration:none;
+        color:white; background: linear-gradient(135deg, #ff7f50, #1e90ff); transition: all 0.3s ease; box-shadow:0 6px 20px rgba(0,0,0,0.2);
+    }
+    .hero-buttons a:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,0,0,0.25); }
+
+    main { background:white; }
+    section { padding:70px 20px; }
+    .container { max-width:1200px; margin:0 auto; }
+    .section-title { text-align:center; font-size:2.8rem; font-weight:bold; margin-bottom:10px; }
+    .section-subtitle { text-align:center; font-size:1.1rem; color:#333; margin-bottom:50px; }
+
+    /* TEAM GRID */
+    .team-grid {
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+        gap:25px; padding:30px 0;
+    }
+
+    .team-card {
+        background:white; border-radius:15px; text-align:center; padding:15px; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow:0 4px 15px rgba(0,0,0,0.1); border:1px solid #ccc;
+    }
+    .team-card:hover { transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.2); }
+
+    .team-card img {
+        width:120px; height:120px; object-fit:cover; border-radius:50%; margin-bottom:15px; border:3px solid #ff7f50;
+    }
+    .team-card h3 { font-size:1.2rem; margin-bottom:8px; color:#1e90ff; }
+    .team-card p { font-size:0.95rem; color:#333; }
+
+    /* GET STARTED SECTION */
+    #get-started a {
+        display:inline-block; padding:15px 40px; border-radius:50px; background:linear-gradient(135deg, #ff7f50, #1e90ff);
+        color:white; font-weight:600; text-decoration:none; box-shadow:0 8px 25px rgba(0,0,0,0.2); transition:all 0.3s ease;
+    }
+    #get-started a:hover { transform:translateY(-3px); box-shadow:0 12px 35px rgba(0,0,0,0.25); }
+
+    /* FOOTER */
+    footer {
+        background:#1e90ff; color:white; padding:50px 20px; text-align:center;
+    }
+    footer h3 { margin-bottom:20px; font-size:1.5rem; }
+    footer p { margin-bottom:15px; font-size:1rem; }
+    footer a { color:white; text-decoration:none; margin:0 10px; font-weight:600; transition: color 0.3s; }
+    footer a:hover { color:#ff7f50; }
+    footer .social-icons a { font-size:1.2rem; margin:0 10px; }
+
+    @media(max-width:768px){ .hero-title{font-size:2.5rem;} .hero-subtitle{font-size:1.3rem;} .team-grid{grid-template-columns:1fr 1fr;} }
+</style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+    <img src="About-Us-PNG-Isolated-Photo.png" alt="AR Icon">
+    <h1 class="hero-title">About Us</h1>
+    <h2 class="hero-subtitle">Groundbreaking the Future of Augmented Reality</h2>
+    <p class="hero-description">
+        We transform how people interact with the digital world by creating immersive AR experiences.
+    </p>
+    <div class="hero-buttons">
+        <a href="javascript:history.back()">Back</a>
+        <a href="index.html">Home</a>
+        <a href="#get-started">Get Started</a>
+    </div>
+</section>
+
+<main>
+    <!-- TEAM SECTION -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-subtitle">Insert your team member photos below with their name and role/description</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="team1.jpg" alt="Dr NGOH LOVERT .A">
+                    <h3>Dr NGOH LOVERT .A</h3>
+                    <p>CEO & Co-Founder</p>
+                </div>
+                <div class="team-card">
+                    <img src="team2.jpg" alt="Mrs. ATUD TALIA">
+                    <h3>Mrs. ATUD TALIA</h3>
+                    <p>Creative Director</p>
+                </div>
+                <div class="team-card">
+                    <img src="team3.jpg" alt="Dr. BRILLIANT">
+                    <h3>Dr. BRILLIANT</h3>
+                    <p>CTO & Co-Founder</p>
+                </div>
+                <div class="team-card">
+                    <img src="team4.jpg" alt="TAKANG TRACY">
+                    <h3>TAKANG TRACY</h3>
+                    <p>Head of Strategy</p>
+                </div>
+                <div class="team-card">
+                    <img src="team5.jpg" alt="Dr. PRINCELY">
+                    <h3>Dr. PRINCELY</h3>
+                    <p>CTO & Co-Founder</p>
+                </div>
+                <div class="team-card">
+                    <img src="team6.jpg" alt="Dr. IMMACULATE">
+                    <h3>Dr. IMMACULATE</h3>
+                    <p>CTO & Co-Founder</p>
+                </div>
+                <div class="team-card">
+                    <img src="team7.jpg" alt="Dr. DESMOND ISREAL">
+                    <h3>Dr. DESMOND ISREAL</h3>
+                    <p>CTO & Co-Founder</p>
+                </div>
+                <div class="team-card">
+                    <img src="team8.jpg" alt="Dr. LOVERTHO">
+                    <h3>Dr. LOVERTHO</h3>
+                    <p>CTO & Co-Founder</p>
+                </div>
+                <div class="team-card">
+                    <img src="team9.jpg" alt="Dr. Eddy">
+                    <h3>Dr. Eddy</h3>
+                    <p>CTO & Co-Founder</p>
+                </div>
+                <div class="team-card">
+                    <img src="team10.jpg" alt="Dr. Sample">
+                    <h3>Dr. Sample</h3>
+                    <p>Team Member</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GET STARTED SECTION -->
+    <section id="get-started">
+        <div class="container">
+            <h2 class="section-title">Ready to Transform Your Vision?</h2>
+            <p class="section-subtitle">Let's create something extraordinary together with augmented reality</p>
+            <div style="text-align:center; margin-top:30px;">
+                <a href="start.html">Get Started</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <h3>ARVision Technologies</h3>
+        <p>Innovating the future of augmented reality</p>
+        <div>
+            <a href="homepage.html">Home</a> |
+            <a href="#get-started">Get Started</a> |
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="social-icons" style="margin-top:20px;">
+            <a href="#"><span>🌐</span></a>
+            <a href="#"><span>🐦</span></a>
+            <a href="#"><span>📘</span></a>
+        </div>
+        <p style="margin-top:20px; font-size:0.9rem;">&copy; 2025 ARVision Technologies. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

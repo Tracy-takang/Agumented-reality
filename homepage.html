@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+     <link rel="stylesheet" type="text/css" href="https:cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 20px;
+  }
+  .buses {
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .bus-card {
+    flex: 1 1 45%;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  .nav-links a {
+    text-align: left;
+    width: 100%;
+  }
+
+
+  .main {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .section-one-one {
+    margin-left: 0;
+    text-align: center;
+  }
+  .section-one-two {
+    margin-left: 0;
+    max-width: 90%;
+    text-align: center;
+  }
+  .slider {
+    height: auto;
+  }
+  .slides img {
+    width: 100%;
+    height: auto;
+  }
+  .buses {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+  }
+  .bus-card img {
+    width: 80%;
+    height: auto;
+  }
+  .pricing-container {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  .learn-more-btn, .btn, .btns {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+  .formgroup input {
+    width: 100%;
+    font-size: 16px;
+  }
+  button {
+    width: 100%;
+  }
+  .footer .row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-col {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            align-items: center;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        body{
+            background-color: white;
+            overflow-x: auto;
+            width: 100vw;
+        }
+        .nav-links{
+            display: flex;
+            gap: 50px;
+        }
+        .nav-links a{
+            text-decoration: none;
+            text-align: center;
+            justify-content: center;
+            border: 5px;
+            padding: 5px 10px;
+            color: black;
+          
+        }
+        .nav-links a:hover{
+            background-color: orangered;
+            padding: 10px 15px;
+             border: 5px;
+            border-radius: 5px 10px;
+        }
+        .nav-links a.active{
+            background-color: orangered;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        /* Navbar style */
+
+
+/* Navbar links */
+.navbar a, .dropbtn {
+  float: left;
+  font-size: 16px;
+  color: rgb(8, 8, 8);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown container */
+.dropdown {
+  float: left;
+  overflow-x: auto;
+  position: relative;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 13px;
+}
+
+/* Hover effects */
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.main{
+  display: flex;
+  justify-content: center;
+}
+.section-one-one h4{
+  margin-left: -18rem;
+  color: orangered;
+  font-size: 20px;
+}
+.section-one-one{
+    font-size: 25px;
+    font-family: sans-serif;
+    margin-top: 6rem;
+    color: blue;
+    margin-bottom: 3rem;
+    margin-left: 4rem;
+}
+.section-one-two{
+   border: 2px solid blue;
+            border-radius: 6px;
+            padding: 20px;
+            max-width: 500px;
+            line-height: 1.2;
+            text-align: left;
+            margin-bottom: 3rem;
+            margin-left: 4rem;
+}
+.learn-more-btn {
+  display: inline-block;
+  background-color: blue;
+  color: white;             
+  padding: 20px 25px;      
+  text-decoration: none;      
+  border-radius: 5px;       
+  font-weight: bold;
+  transition: background-color 0.3s ease; 
+  margin-left: 2rem;
+}
+
+.learn-more-btn:hover {
+  background-color: #0077e6; 
+}
+.slider {
+            width: 100%;
+            height: 400px;
+            overflow: visible;
+            border-radius: 10px;
+          
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            animation: slide 12s infinite;
+        }
+
+        .slides img {
+            width: 500px;
+            height: 400px;
+            object-fit: cover;
+        }
+        h2{
+          font-weight: bold;
+          text-align: center;
+          font-size: 50px;
+          color: blue;
+        }
+        h3{
+          text-align: center;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-600px); }
+            50% { transform: translateX(-1200px); }
+            75% { transform: translateX(-1800px); }
+            100% { transform: translateX(0); }
+        }
+         .btn{
+            background-color: blueviolet;
+            color: #f5f5f5;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+             margin-left: 8rem;
+         }
+          .slide .btn:hover{
+            background-color: blue;
+          }
+          .buses {
+            display: flex;
+            gap: 70px;
+            height: 25rem;
+            width: 80rem;
+            text-align: center;
+            justify-content: space-between;
+        }
+        .bus-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: -2rem;
+            margin-left: 0.4rem;
+        }
+        .bus-card img {
+            width: 38%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: -4rem;
+        }
+        .btns{
+           border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 0.3rem;
+            background-color: blue;
+            color: white;
+        }
+        .bus-card .btns:hover{
+          background-color: orangered;
+        }
+         .review-section { 
+            max-width: 600px; 
+            margin: auto;
+            color: rgb(10, 3, 3);
+         }
+        .review { 
+            border-bottom: 1px solid #ccc; 
+            padding: 15px 0;
+         }
+         .stars { 
+            color: #f39c12; 
+        }
+        .comment-form .submit{
+              border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 0.3rem;
+            background-color: blue;
+            color: white;
+        }
+        .comment-form textarea {
+             width: 100%; height: 100px;
+             }
+             .comment-form .text{
+              border-radius: 20px;
+              width: 600px;
+             }
+        .comment-form input, .comment-form textarea { 
+            margin-bottom: 10px; 
+            padding: 8px;
+         }
+         h5{
+            text-align: center;
+            text-decoration: underline;
+            font-weight: bold;
+            font-size: large;
+         }
+         .heart {
+           animation: heartbeat 2s infinite;
+            padding: 15px 20px;
+            font-size: bold;
+            background: linear-gradient(blue);
+            transform: rotate(-45deg);
+            position: relative;
+            justify-content: center;
+            display: flex;
+            border-radius: 20px;
+            color: white;
+        
+      }
+      
+      @keyframes heartbeat {
+          0% {
+            transform: rotate(360deg) scale(1); 
+        }
+          25% {
+            transform: rotate(360deg) scale(1.1); 
+        }
+        50% {
+            transform: rotate(360deg) scale(1); 
+        }
+        75% {
+            transform: rotate(360deg) scale(1.1); 
+        }
+        100% {
+            transform: rotate(360deg) scale(1); 
+        }
+      
+      }
+      .start{
+        display: flex;
+        justify-content: center;
+        padding: 12px 16px;
+        border-radius: 20px;
+        font-family: fantasy;
+        font-weight: bold;
+      }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            line-height: 1.5;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .container{
+            max-width: 1170px;
+            margin: auto;
+        }
+        .row{
+            display: flex;
+        }
+        ul{
+            list-style: none;
+        }
+        .footer{
+            background-color: rgb(3,3,66);
+            padding: 50px 0;
+            margin: -2rem
+        }
+        .footer-col{
+             width: 20%;
+        }
+        .footer-col h4{
+            font-size: 18px;
+            color: white;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+
+        }
+        .footer-col ul li::not(:last-child){
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a{
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: capitalize;
+            color: white;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul li a:hover{
+            color: white;
+            padding-left: 8px;
+        }
+        .footer-col .social-links a{
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(225,225,225,0.2);
+            margin:0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #bbbbbb;
+            transition: all 0.5s ease;
+        }
+        .footer-col .social-links a:hover{
+            color: #24262b;
+            background-color: #ffffff;
+        }
+        /* responsive*/
+        @media(max-width:767px){
+            .footer-col{
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+        @media(max-width:574px){
+            .footer-col{
+                width: 100%;
+             
+            }
+        }
+        .pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 30px 20px;
+    width: 350px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .card:hover {
+    background-color: #457ff3;
+  }
+
+  .circle {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #555;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-weight: bold;
+  }
+
+  h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .price {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 5px 0;
+  }
+
+  .monthly {
+    color: #3366cc;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #333;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    padding: 10px 30px;
+    margin-top: 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .btn:hover {
+    background-color: #0646a7;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 30px;
+    background-color: white;
+}
+.formgroup{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+input{
+    padding: 12px 16px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: beige;
+}
+button{
+    background-color: rgb(84, 84, 225);
+    padding: 12px 16px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+button:hover{
+   color: aliceblue;
+   background-color: rgb(87, 25, 131);
+}
+h4{
+  font-weight: bold;
+  text-align: center;
+  font-size: 40px;
+  color: rgb(47, 0, 255);
+}
+  .button {
+           animation: heartbeat 2s infinite;
+            padding: 20px 60px;
+            font-size: bold;
+            background-color: blueviolet;
+            transform: rotate(-45deg);
+            position: relative;
+            justify-content: center;
+            display: flex;
+            border-radius: 20px;
+            color: rgb(253, 253, 253);
+            margin-bottom: 1rem;
+            margin-left: 3rem;
+        
+      }
+        .buttons {
+           animation: heartbeat 2s infinite;
+            background-color: blue;
+            transform: rotate(-45deg);
+            position: relative;
+            justify-content: center;
+            display: flex;
+            border-radius: 10px;
+            color: rgb(253, 253, 253);
+            margin-bottom: 1rem;
+            margin-left: 6rem;
+        }
+      @keyframes heartbeat {
+          0% {
+            transform: rotate(360deg) scale(1); 
+        }
+          25% {
+            transform: rotate(360deg) scale(1.1); 
+        }
+        50% {
+            transform: rotate(360deg) scale(1); 
+        }
+        75% {
+            transform: rotate(360deg) scale(1.1); 
+        }
+        100% {
+            transform: rotate(360deg) scale(1); 
+        }
+      }
+      .section-two{
+        margin-top: 4rem;
+        margin-left: 2rem;
+      }
+    </style>
+</head>
+<body>
+   <header>
+    <nav class="navbar">
+        <img src="tryam.png" alt="" style="height: 80px; margin-right: 20px;">
+        <div class="nav-links">
+            <a href="contact us.html">contact</a>
+            <a href="#" class="active">home</a>
+            <a href="about us.html">about</a>
+            <div class="dropdown">
+    <button class="dropbtn">Services ▼</button>
+    <div class="dropdown-content">
+      <a href="service.html">AR Product</a>
+      <a href="index.html">Virtual Try-On</a>
+    </div>
+  </div>
+
+  <a href="#pricing-container">Reviews</a>
+            <a href="contact us.html">Contact Us</a>
+             <a href="FAQ.html">FAQ</a>
+        </div>
+       <a href="index.html">
+         <button class="buttons">GET STARTED</button>
+       </a>
+    </nav>
+   </header>
+   <section class="overall">
+       <div class="main">
+        <div class="section-one">
+            <div class="section-one-one">
+              <h4>WELCOME TO TRY-AM</h4>
+               <h1>A Place Where You Can <br>
+                   Purchase And Experience <br>
+                   The Confort Of Our Products</h1>
+            </div>
+            <div class="section-one-two">
+                <p>✨ “Step into the future with Augmented Reality – where imagination meets innovation. With just a tap, you can bring products to life, explore every detail from every angle, and experience a world that blends the digital with the real. No more guessing, no more limitations – just pure interaction, creativity, and discovery at your fingertips. AR isn’t just technology; it’s a magical bridge that connects your dreams with reality, making every experience more personal, immersive, and unforgettable.” ✨</p>
+            </div>
+            <div>
+              <a href="about us.html" class="learn-more-btn">Learn More</a>
+            </div><br><br><br>
+
+        </div>
+        <div class="section-two">
+         <img src="Try-on-1.png" alt="">
+        </div>
+
+       </div>
+   </section>
+   <h2>Experience Products Like Never Before</h2><br>
+   <h3>Try before you purchase using Augmented Reality</h3><br><br><br>
+   <a href="index.html">
+   <button class="button">TRY-AM</button>
+   </a>
+      <div class="slider">
+        <div class="slides">
+            <div class="slide">
+               <img src="top-hat-exDGBL9-600.jpg" alt="">
+            </div>
+              <div class="slide">
+               <img src="PortolaLoungeChairOiledOakGradeCMohairAntelope1.webp" alt="">
+              
+            </div>
+              <div class="slide">
+                 <img src="d401f2e587ca615eda5365deae136bb5.jpeg" alt="">
+          
+            </div>
+              <div class="slide">
+                <img src="H01.jpg" alt="">
+             
+            </div>
+              <div class="slide">
+                <img src="espresso-and-brown-dining-room-sets-hdt757301wb-hd-64_600.avif" alt="">
+              
+            </div>
+              <div class="slide">
+                <img src="a-chair-metal-base-6542-re-wool-358-black.jpg" alt="">
+             
+            </div>
+              <div class="slide">
+                 <img src="New_Brown_Side_Small_2d9869fc-5cd0-42db-b862-072060c9cf00_grande.webp" alt="">
+          
+            </div>
+        </div>
+    </div><br><br><br><br><br><br>
+     <section class="bus-card">
+      <div class="buses">
+       <div class="bus-card">
+         <img src="glass3.webp" alt=""><br><br><br><br>
+         <h1>Fashion Glasses</h1><br><br>
+         <p>Bring elegance to life with our AR-powered eye-glass preview. Rotate it, zoom in, and see every detail.
+
+</p>
+         <a href="https://my.spline.design/starterscenecopy-Ktaw5ceokFJMroFO7oorhf3Q/" class="learn-more-btn">View in 3D</a>
+       </div>
+
+        <div class="bus-card">
+         <img src="OIP.jpeg" alt=""><br><br><br><br>
+         <h1>Description About Hat</h1><br><br>
+         <p>Step into the future of shopping – try on our hats in real time with AR. See how they look on your head</p>
+         <a href="https://my.spline.design/untitled-yNHT0Wre686ZpYkavtcE5pth/" class="learn-more-btn">View in 3D</a>
+       </div>
+
+          <div class="bus-card">
+         <img src="g15.webp" alt=""><br><br><br><br>
+         <h1>Small Description About Shoe</h1><br><br>
+         <p>No more guessing if it fits! Place our sofa in your living room with AR</p>
+         <a href="https://my.spline.design/untitled-TNj6dHnFqJL67r536KYG10Dg/" class="learn-more-btn">View in 3D</a>
+       </div>
+      </div><br><br><br><br><br>
+
+       </section>
+       <video width="100%" height="500px"  controls>
+         <source src="video anim.mp4" type="video/mp4">
+       </video><br><br><br>
+    <h2>Customer Reviews</h2>
+    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</h3><br><br>
+  
+<div class="pricing-container" id="pricing-container">
+
+  <div class="card">
+    <div class="circle">1</div>
+    <h3>TAKANG TRACY</h3>
+    <div class="stars">★★★☆☆</div>
+    <div class="monthly">ratings</div>
+    <p>5GB bandwidth Free</p>
+    <p>Email Addresses 24/7</p>
+    <p>security monitoring</p>
+  </div>
+
+  <div class="card">
+    <div class="circle">2</div>
+    <h3>NGOH LOVERT</h3>
+    <div class="stars">★★★☆☆</div>
+    <div class="monthly">Ratings</div>
+    <p>5GB bandwidth Free</p>
+    <p>Email Addresses 24/7</p>
+    <p>security monitoring</p>
+  </div>
+
+  <div class="card">
+    <div class="circle">3</div>
+    <h3>TABIT PRINCELY</h3>
+    <div class="stars">★★★☆☆</div>
+    <div class="monthly">Ratings</div>
+    <p>5GB bandwidth Free</p>
+    <p>Email Addresses 24/7</p>
+    <p>security monitoring</p>
+  </div>
+
+</div>
+<section><br>
+
+   
+       <div class="container">
+<form action="" class="myform">
+    <h4>HELLO THERE!!!!!! you can leave a review</h4>
+     <div class="formgroup">
+       <label>Full Name</label>
+       <input type="text" placeholder="e.g John">
+     </div>
+     <div class="formgroup">
+        <label>Email_address</label>
+        <input type="text" placeholder="john@gmail.com">
+      </div>
+      <div class="formgroup">
+        <label>Ratings</label>
+        <input type="text" placeholder="1-5">
+      </div>
+      <div class="formgroup">
+        <label>Mobile Phone</label>
+        <input type="text" placeholder="+237 123 456 789">
+      </div>
+      <button type="submit">Submit</button>
+</form>
+    </div><br><br><br>
+   
+   
+      <footer class="footer">
+      <div class="container">
+         <div class="row">
+             <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about us.html">AboutUs</a></li>
+                    <li><a href="service.html">our Service</a></li>
+                    <li><a href="privacy.html">privacy policy</a></li>
+                    <li><a href="#">Partnership</a></li>
+                    <li><a href="#">Programs</a></li>
+                </ul>
+             </div>
+             <div class="footer-col">
+                <h4>News</h4>
+                <ul>
+                    <li><a href="#">Onlineplatform</a></li>
+                    <li><a href="#">DailyBlog</a></li>
+                    <li><a href="#">contentmax</a></li>
+                </ul>
+             </div>
+             <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">Towns</a></li>
+                    <li><a href="#">Amenities</a></li>
+                    <li><a href="#">Travel
+                        Review</a></li>
+                </ul>
+             </div>
+             <div class="footer-col">
+                <h4>Get_help</h4>
+                <ul>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="#">refurn</a></li>
+                    <li><a href="#">payment option</a></li>
+                </ul>
+             </div>
+             <div class="footer-col">
+                <h4>contactUs</h4>
+                <div class="social-links">
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/237670093629"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+             </div>
+         </div>
+      </div>
+    </footer>
+</body>
+</html> 

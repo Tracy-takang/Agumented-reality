@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Forms</title>
+    <link rel="stylesheet" href="fo.css">
+    <link rel="stylesheet" href="login.html">
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="form-header">
+            <button class="active" onclick="showLogin()">Login</button>
+            <button onclick="showSignup()">Signup</button>
+        </div>
+        <form id="login-form" action="insert_data.php" method="post">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-footer">
+                <a href="#">Forgot password?</a>
+            </div>
+            <div class="form-actions">
+                <button class="submit"><a href="Try-on.html">Login</a></button>
+            </div>
+            <div class="form-footer">
+                Not a member? <a href="#" onclick="showSignup()">Signup now</a>
+            </div>
+        </form>
+
+        <form id="signup-form" action="insert_data.php" method="post">
+             <div class="form-group">
+                <label for="first name">first name</label>
+                <input type="name" id="first name" name="first name" required>
+            </div>
+             <div class="form-group">
+                <label for="last name">last name</label>
+                <input type="name" id="last name" name="last name" required>
+            </div>
+             <div class="form-group">
+                <label for="signup-email">email Address</label>
+                <input type="email" id="signup-email" name="signup-email" required>
+            </div>
+             <div class="form-group">
+                <label for="date_of_birth">date_of_birth</label>
+                <input type="date" id="date_of_birth" name="date_of_birth" required>
+            </div>
+            <div class="form-group">
+                <label for="location">location</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+             <div class="form-group">
+                <label for="phone_number">phone</label>
+                <input type="text" id="phone_number" name="phone_number" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" name="signup-password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <div class="form-actions">
+                <button class="submit"><a href="Try-on.html">Signup</a></button>
+            </div>
+            <div class="form-footer">
+                Already a member? <a href="#" onclick="showLogin()">Login</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+        const loginButton = document.querySelector('.form-header button:first-child');
+        const signupButton = document.querySelector('.form-header button:last-child');
+
+        function showLogin() {
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+            loginButton.classList.add('active');
+            signupButton.classList.remove('active');
+        }
+
+        function showSignup() {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+            loginButton.classList.remove('active');
+            signupButton.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
